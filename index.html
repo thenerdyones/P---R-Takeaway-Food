@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="P&R Takeaway Food Limited. - Your go-to for exceptional catering services.">
+    <title>P&R Takeaway Food Limited.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        p {
+            font-family: "Oswald", sans-serif;
+            font-optical-sizing: auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #979797;
+            margin-bottom: 0px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+
+        h4,
+        p {
+            font-size: 0.9rem;
+            font-weight: 200;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            h3 {
+                font-size: 2rem;
+            }
+
+            h4,
+            p {
+                font-size: 1.2rem;
+            }
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .banner-image {
+            width: 100vw;
+            height: 450px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            opacity: 0.7;
+            margin-top: 0;
+        }
+
+        .service-image-container {
+            position: relative;
+            width: 600px;
+            margin-bottom: 20px;
+        }
+
+        .service-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .more-info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 80px;
+            height: 40px;
+            font-size: 10px;
+            background-color: rgba(255, 255, 255, 0.75);
+            color: black;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .more-info:hover {
+            opacity: 0.9;
+        }
+
+        .alert-box {
+            display: none;
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo_head,
+        .logo_body {
+            color: #8d8b8b;
+            /* Dark gray color */
+        }
+
+        .logo_head {
+            margin-bottom: 0;
+            font-size: 24px;
+            /* Slightly reduced size */
+            font-weight: 700;
+        }
+
+        .logo_body {
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-left: 3px;
+            font-size: 14px;
+            /* Adjusted size */
+            font-weight: 400;
+        }
+
+        .welcome_p {
+            color: #a5a5a5;
+            font-weight: 300;
+        }
+
+        .p_footer {
+            font-size: 16px;
+
+        }
+
+      /* Always display the desktop menu */
+.container-fluid > ul {
+    display: flex;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.container-fluid > ul > li > a {
+    text-decoration: none;
+    padding: 10px;
+    color: #858585;
+}
+
+/* Initially hide the hamburger icon and mobile menu */
+.hamburger, .mobile-menu {
+    display: none;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    /* Hide the desktop menu */
+    .container-fluid > ul {
+        display: none;
+    }
+    .service-image-container {
+        width: 100%; /* Ensures the container fits within the viewport width */
+        max-width: 100vw; /* Prevents the container from extending beyond the viewport width */
+        margin: 0 auto; /* Centers the container within the viewport if necessary */
+        box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+    }
+    .service-image {
+        max-width: 100%; /* Ensures the image does not exceed the width of its container */
+        height: auto; /* Adjusts the height automatically to maintain aspect ratio */
+    }
+    /* Show the hamburger icon */
+    .hamburger {
+        display: block;
+        position: fixed; /* or absolute, depending on layout */
+        width: 30px;
+        top: 0; right: 25px;
+        padding: 15px;
+        z-index: 2; /* Ensure it's above other content */
+        background-color: transparent;
+        border: none;
+    }
+
+    /* Style for when the mobile menu is displayed */
+    .mobile-menu {
+        display: none; /* Hidden by default, shown when hamburger is clicked */
+        position: fixed;
+        top: 20px; right: 15px;
+        background-color: rgba(13, 10, 31, 0.95);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        z-index: 1; /* Below the hamburger icon */
+        width: 40%;
+    }
+
+    .mobile-menu a {
+        color: white;
+        padding: 10px;
+        text-decoration: none;
+        display: block;
+    }
+    .logo_head {
+            margin-top: 5px;
+            font-size: 16px;
+            /* Slightly reduced size */
+            font-weight: 700;
+        }
+
+        .logo_body {
+            margin-top: 0px;
+            margin-bottom: 0;
+            padding-left: 0px;
+            font-size: 10px;
+            /* Adjusted size */
+            font-weight: 400;
+        }
+}
+
+    </style>
+</head>
+
+<body>
+    <nav class="container-fluid">
+        <!-- Logo remains visible outside the mobile menu to be present in all views -->
+        <strong><h3 class="logo_head">P&R</h3><h5 class="logo_body">Take Away</h5></strong>
+        <ul>
+            <li><a href="#welcome">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+        <!-- Hamburger Icon for Mobile -->
+        <a class="hamburger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+        </a>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <a href="#welcome">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <div class="flex-container">
+        <main class="container">
+            <div class="flex-container">
+                <section id="welcome">
+                    <h1>Welcome to P&R Takeaway Food Limited.</h1>
+                    <p class="welcome_p">Your go-to for exceptional catering services. From massive orders to weddings
+                        and more, we're here to deliver.</p>
+                    <img src="main-photo1.jpg" alt="Welcome banner" class="banner-image">
+                </section>
+                <section id="services">
+                    <h2>Services & Cuisines</h2>
+                    <div class="flex-container">
+                        <div class="service-image-container">
+                            <button class="more-info"
+                                onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">More
+                                Info</button>
+                            <img src="cristiano-pinto-2lWGQ02DGL8-unsplash.jpg" alt="Cuisines"
+                                class="service-image">
+                        </div>
+                        <h3>Multi-Cultural Cuisines</h3>
+                        <p>We offer a wide range of multi-cultural Meals, West African, East African, Southern American cusines. .</p>
+
+                        <div class="service-image-container">
+                            <button class="more-info"
+                                onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">More
+                                Info</button>
+                            <img src="mass-delivery.jpg" alt="Office Lunch Delivery"
+                                class="service-image">
+                        </div>
+                        <h3>Bulk/Mass Catering and Delivery.</h3>
+                        <p>We offer mass catering for events, and home services.</p>
+
+                        <div class="service-image-container">
+                            <button class="more-info"
+                                onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">More
+                                Info</button>
+                            <img src="keesha-s-kitchen-eaSIzdS8pv0-unsplash.jpg"
+                                alt="Family Meal Packages" class="service-image">
+                        </div>
+                        <h3>Family Meal Packages</h3>
+                        <p>Enjoy more family time with less cooking. Our family meal packages are designed to offer
+                            convenience and variety, with something to please everyone.</p>
+                            <div class="service-image-container">
+                                <button class="more-info"
+                                    onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">More
+                                    Info</button>
+                                <img src="pexels-mart-production-7706418.jpg"
+                                    alt="Family Meal Packages" class="service-image">
+                            </div>
+                            <h3>Quick Delivery</h3>
+                            <p>We will have your meal to your doortstep in no time. Access to company owned delivery service,
+                                allows us to have your food there in no time.
+                            </p>
+                    </div>
+                </section>
+                <section id="about">
+                    <h2>About Us</h2>
+                    <p>P&R Takeaway Food Limited. has been a beacon of culinary excellence for over a decade. Our
+                        commitment to quality ingredients, exquisite flavors, and above all, love for food, has made us
+                        a household name.</p>
+                </section>
+            </div>
+        </main>
+        <section aria-label="Contact Us" id="contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <form class="flex-container" onsubmit="showMessage(); return false;">
+                    <input type="text" id="firstname" name="firstname" placeholder="Your Name" required>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+        <section id="map">
+            <div class="container">
+                <h2>Find Us</h2>
+                <iframe width="100%" height="400" frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99504.69029968816!2d0.1546341765951014!3d51.48033773901426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8ad4c5e0b7473%3A0x7d7afb1cd98d3bff!2sErith%2C%20UK!5e0!3m2!1sen!2sus!4v1664610730644!5m2!1sen!2sus"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+        <div class="alert-box" id="alertBox">Message Delivered!</div>
+        <footer class="container">
+            <small><a href="#">Privacy Policy</a> • <a href="#">Terms of Use</a>
+                <p class="p_footer">Company Number: 15719407</p>
+            </small>
+        </footer>
+    </div>
+    <script>
+        function showMessage() {
+            setTimeout(() => {
+                const alertBox = document.getElementById('alertBox');
+                alertBox.style.display = 'block';
+                setTimeout(() => alertBox.style.display = 'none', 3000); // Hide after 3 seconds
+            }, 2000); // 2 second delay
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.querySelector('.hamburger');
+            const menu = document.querySelector('.mobile-menu');
+
+            // Toggle menu display on hamburger click
+            hamburger.addEventListener('click', function () {
+                menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            });
+
+            // Close the menu if clicking outside of it
+            document.addEventListener('click', function (e) {
+                if (!hamburger.contains(e.target) && !menu.contains(e.target)) {
+                    menu.style.display = 'none';
+                }
+            });
+
+            // Close the menu on scroll
+            window.addEventListener('scroll', function () {
+                menu.style.display = 'none';
+            });
+        });
+
+
+
+    </script>
+</body>
+
+</html>
